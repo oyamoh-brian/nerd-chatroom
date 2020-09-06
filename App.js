@@ -24,7 +24,7 @@ app.use(express.static('public'))
 app.get('/',(request, response)=>{
     response.sendFile(__dirname + '/public/index.html')
 })
-
+// <SocketConnection>
 roomSocket.on('connection',(socket)=>{
     console.log("Socket")
     socket.on('message',(message)=>{
@@ -37,6 +37,7 @@ roomSocket.on('connection',(socket)=>{
         // Broadcast or save last seen
     });
 });
+// </SocketConnection>
 const port = process.env.PORT || config.PORT 
 
 // Listen & Serve!!
